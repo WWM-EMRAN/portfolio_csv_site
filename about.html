@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html><head><title>About</title><link rel="stylesheet" href="css/style.css"></head>
+<body><h1>About Me</h1><div id="about"></div>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+loadData("data/about.csv", data => {
+document.getElementById("about").innerHTML = `
+<h2>${data.name}</h2><h3>${data.role}</h3><p>${data.bio}</p>
+<p>Location: ${data.location}</p><p>Email: ${data.email}</p>`;
+});
+</script></body></html>

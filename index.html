@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head><title>Home | Portfolio</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<h1 id="name"></h1><h3 id="role"></h3><p id="bio"></p><p>Email: <span id="email"></span></p>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+loadData("data/about.csv", data => {
+  document.getElementById("name").textContent = data.name;
+  document.getElementById("role").textContent = data.role;
+  document.getElementById("bio").textContent = data.bio;
+  document.getElementById("email").textContent = data.email;
+});
+</script>
+</body></html>

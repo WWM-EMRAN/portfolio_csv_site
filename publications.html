@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head><title>Publications</title><link rel="stylesheet" href="css/style.css"></head>
+<body><h1>Publications</h1><div id="publications"></div>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="js/main.js"></script><script src="js/render.js"></script>
+<script>
+loadData("data/publications.csv", data => {
+renderList(data,"publications", p=>`<div class='card'><h2>${p.title}</h2><p>${p.venue}</p><small>${p.year}</small></div>`);
+});
+</script></body></html>

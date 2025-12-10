@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head><title>Experience</title><link rel="stylesheet" href="css/style.css"></head>
+<body><h1>Experience</h1><div id="experience"></div>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="js/main.js"></script><script src="js/render.js"></script>
+<script>
+loadData("data/experience.csv", data => {
+renderList(data,"experience", e=>`<div class='card'><h2>${e.role}</h2><h3>${e.company}</h3><p>${e.details}</p><small>${e.year}</small></div>`);
+});
+</script></body></html>

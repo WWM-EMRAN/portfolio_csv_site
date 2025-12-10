@@ -1,0 +1,1 @@
+function renderList(data,id,mapper){document.getElementById(id).innerHTML=data.map(mapper).join("");}
