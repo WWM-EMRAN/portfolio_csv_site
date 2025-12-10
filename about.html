@@ -3,38 +3,23 @@
 <body><h1>About Me</h1><div id="about"></div>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script src="js/main.js"></script>
-<!--<script>-->
-<!--loadData("data/about.csv", data => {-->
-<!--document.getElementById("about").innerHTML = `-->
-<!--<h2>${data.name}</h2><h3>${data.role}</h3><p>${data.bio}</p>-->
-<!--<p>Location: ${data.location}</p><p>Email: ${data.email}</p>`;-->
-<!--});-->
-<!--</script>-->
-<!--<script>-->
-<!--    loadData("data/about.csv", raw => {-->
 
-<!--        // Convert CSV rows into a usable object:-->
-<!--        const about = {};-->
-<!--        raw.forEach(r => {-->
-<!--            about[r.key] = r.value;-->
-<!--        });-->
-
-<!--        // Now about.name, about.role, etc. work properly-->
-<!--        document.getElementById("about-name").textContent = about.name;-->
-<!--        document.getElementById("about-role").textContent = about.role;-->
-<!--        document.getElementById("about-bio").textContent = about.bio;-->
-<!--        document.getElementById("about-email").textContent = about.email;-->
-<!--    });-->
-<!--</script>-->
 <script>
     loadData("data/about.csv", raw => {
+
+        // Convert key-value CSV → object
         const about = {};
         raw.forEach(r => about[r.key] = r.value);
 
-        document.getElementById("name").textContent = about.name;
-        document.getElementById("role").textContent = about.role;
-        document.getElementById("bio").textContent = about.bio;
-        document.getElementById("email").textContent = about.email;
+        // Build the HTML for the About page
+        const html = `
+        <h2>${about.name}</h2>
+        <h3>${about.role}</h3>
+        <p>${about.bio}</p>
+        <p><strong>Email:</strong> ${about.email}</p>
+    `;
+
+        document.getElementById("about").innerHTML = html;
     });
 </script>
 
